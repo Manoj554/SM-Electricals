@@ -1,0 +1,39 @@
+extends provider.pug
+block style 
+  link(rel="stylesheet", href="./stylesheets/signupstyle.css")
+  link(rel="stylesheet", href="./stylesheets/homestyle.css")
+
+block content 
+  .box
+    form.modal-content(action='/meterdetails_entry' method="post")
+      .container
+        h1 Meter Details
+        p Please fill in this form
+        hr
+        if(msg!='')
+          h2 #{msg} 
+        label(for='acc')
+          b Account No:
+        input(type='text' placeholder='Enter Account No :' name='acc' required='')
+        label(for='MeterNo')
+          b Meter No :
+        input(type='text' placeholder='Enter Meter Number :' name='MeterNo' required='')
+        label(for='cr')
+          b Current Reading :
+        input(type='text' placeholder='Enter Current Reading  :' name='cr' required='')
+        label(for='cb')
+          b Current Bill : 
+        input(type='text' placeholder='Enter Bill Amount' name='cb' required='')
+        label(for='lra')
+          b LastRechageAmount : 
+        input(type='text' placeholder='Enter last recharge Amount' name='lra' required='')
+        label
+          input(type='checkbox' checked='checked' name='remember' style='margin-bottom:15px')
+          |  Remember me
+        p
+          | By creating an account you agree to our 
+          a(href='#' style='color:dodgerblue') Terms & Privacy
+          | .
+        .clearfix
+          button.cancelbtn.btns(type='reset' onclick="document.getElementById('id01').style.display='none'") Reset
+          button.signupbtn.btns(type='submit') Submit

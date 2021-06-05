@@ -1,0 +1,12 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body{
+    background-color: aqua;
+}
+.navbar{
+    margin: 5px 0px;
+    /* height: 50px; */
+}

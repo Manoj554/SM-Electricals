@@ -1,0 +1,59 @@
+extends base.pug 
+block style 
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css')
+  link(rel="stylesheet", href="./stylesheets/dashboardstyle.css")
+block content 
+   .container 
+    h1.ui.center.aligned.header
+    .ui.container
+      table.ui.celled.table.center.aligned
+        thead
+          tr
+            th(colspan='5',style="background-color:aqua;")
+              h1 #{title}
+            
+          tr.thead
+            th Consumer Account No
+            th Name
+            th Phone 
+            th Address 1   
+        tbody
+        
+                 tr 
+                   td #{record.AccountNo}
+                   td #{record.Name}
+                   td #{record.PhoneNo}
+                   td #{record.Address}          
+        tfoot
+          tr
+            th(colspan='4')
+
+    h1.ui.center.aligned.header 
+    .ui.container
+      table.ui.celled.table.center.aligned
+        thead
+          tr
+            th(colspan='5',style="background-color:aqua;")
+              h1  Billing details 
+          tr.thead
+            th Meter Number
+            th Current Reading
+            th Current Bill 
+            th Balance   
+            th Last Recharge
+        tbody
+        
+                 tr 
+                   td #{meter.MeterNo}
+                   td #{meter.CurrentReading}
+                   td #{meter.CurrentBill}
+                   td #{meter.Balance}
+                   td #{meter.LastRechageAmount}          
+        tfoot
+          tr
+            th(colspan='5')
+
+                
+                    
+
+

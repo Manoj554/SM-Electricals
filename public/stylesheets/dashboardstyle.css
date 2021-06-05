@@ -1,0 +1,16 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body{
+    background: url('https://source.unsplash.com/user/erondu/1600x900');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+thead tr th{
+    background-color: aqua;
+}

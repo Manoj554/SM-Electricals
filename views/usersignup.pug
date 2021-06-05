@@ -1,0 +1,20 @@
+extends base.pug 
+block style 
+  link(rel="stylesheet", href="./stylesheets/signupstyle.css")
+block content 
+  .box
+    form.modal-content(action='/Check_User' method="post")
+      .container
+        h1 Sign Up
+        | Please fill this form to verify .
+        hr
+        if(msg!='')
+          h2 #{msg} 
+          h3 Please Check !!!
+        label(for='acc')
+          b Account No :
+        input(type='text' placeholder='Enter Account No or Phone Number :' name='acc' required='')
+        .clearfix
+            button.signupbtn.btns(type='submit') verify
+        
+            

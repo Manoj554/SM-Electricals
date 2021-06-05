@@ -1,0 +1,41 @@
+extends provider.pug
+block style 
+  link(rel="stylesheet", href="./stylesheets/signupstyle.css")
+  link(rel="stylesheet", href="./stylesheets/homestyle.css")
+  link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css')
+block content 
+   main#main
+    h1.ui.center.aligned.header #{title} 
+    .ui.container
+      table.ui.celled.table.center.aligned
+        thead
+          tr
+            th Consumer Account No
+            th Meter No
+            th Current Reading
+            th Current bill
+            th Last Recharge
+            th Balance 
+            th Action
+        tbody
+            if(records.length==0)
+              tr
+                td(colspan='7') 
+                  h2 No Data Here
+            if(records.length>0)
+              each record in records
+                tr 
+                   td #{record.AccountNo}
+                   td #{record.MeterNo}
+                   td #{record.CurrentReading}
+                   td #{record.CurrentBill} 
+                   td #{record.LastRechageAmount}
+                   td #{record.Balance}
+                   td
+                    a.btn.btn-info.btn-sm(href=`/meterdetails/${record._id}`)
+                      i.glyphicon.glyphicon-edit
+                    a.btn.btn-danger.btn-sm(href=`/meterdetails/${record._id}`)
+                      i.glyphicon.glyphicon-trash
+        tfoot
+          tr
+            th(colspan='7')

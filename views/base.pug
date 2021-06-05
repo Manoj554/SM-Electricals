@@ -1,0 +1,64 @@
+doctype html 
+html 
+  head 
+    title #{title}
+    link(rel="shortcut icon", href="./images/logo.png", type="image/x-icon")
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    link(rel="stylesheet", href="./stylesheets/basestyle.css")
+    link(rel="stylesheet", href="./stylesheets/homestyle.css")
+    block style 
+
+  body 
+      nav.navbar.navbar-inverse.bg-primary
+        .container-fluid
+          .navbar-header
+            a.navbar-brand(href='/provider') SM Electrical Ltd
+          ul.nav.navbar-nav
+            li.active
+              a.add(href='/') Home
+            li 
+              a.add(href="#") Services 
+            //- li.dropdown
+            //-   a.dropdown-toggle(data-toggle='dropdown' href='#')
+            //-    | Page 1 
+            //-    span.caret
+            //-   ul.dropdown-menu
+            //-     li
+            //-       a(href='#') Page 1-1
+            //-     li
+            //-       a(href='#') Page 1-2
+            //-     li
+            //-       a(href='#') Page 1-3
+            li
+              a.add(href='#') Contact US
+            li
+              a.add(href='#') About US
+          ul.nav.navbar-nav.navbar-right
+            li 
+              form.navbar-form(action='/action_page.php')
+                .form-group
+                  input.form-control(type='text' placeholder='Search Here')
+                button.btn.btn-primary(type='submit') Search
+            if(login==null)
+
+              li
+                a.add(href='/user_signup')
+                  span.glyphicon.glyphicon-user
+                  |  Sign Up
+              li
+                a.add(href='/login')
+                  span.glyphicon.glyphicon-log-in
+                  |  Login
+            if(login)
+              li
+                a.add(href='#') Welcome
+                  span.glyphicon.glyphicon-user
+                  |  #{login}
+              li  
+                a.add(href="/logout")
+                  span.glyphicon.glyphicon-log-in
+                  |  Logout   
+
+      block content

@@ -1,0 +1,37 @@
+extends base.pug 
+block style 
+   link(rel="stylesheet", href="./stylesheets/signupstyle.css")
+block content 
+  .box
+    form.modal-content(action='/user_signup' method="post")
+      .container
+        h1 Sign Up
+        | Please fill this form to create an account.
+        hr
+        if(msg!='')
+          h2 #{msg} 
+        label(for='acc')
+          b Account No:
+        input(type='text' placeholder='Enter Account No :' name='acc' value=`${record.AccountNo}` readonly)
+        //- label(for='name')
+        //-   b Name :
+        //- input(type='text' placeholder='Enter Name for the Account :' name='name' required='')
+        //- label(for='phone')
+        //-   b Phone No :
+        //- input(type='phone' placeholder='Enter Phone No :' name='phone' required='')
+        //- label(for='address')
+        //-   b Address :
+        //- textarea(name="address", cols="20", rows="3" required='' placeholder='Write your Address :') 
+        label(for='psw')
+          b Set a password for your Account
+        input(type='password' placeholder='Set a Password' name='psw' required='')
+        label
+          input(type='checkbox' checked='checked' name='remember' style='margin-bottom:15px')
+          |  Remember me
+        p
+          | By creating an account you agree to our 
+          a(href='#' style='color:dodgerblue') Terms & Privacy
+          | .
+        .clearfix
+          button.cancelbtn.btns(type='button' onclick="document.getElementById('id01').style.display='none'") Cancel
+          button.signupbtn.btns(type='submit') Sign Up

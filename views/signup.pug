@@ -1,0 +1,42 @@
+extends provider.pug
+block style 
+  link(rel="stylesheet", href="./stylesheets/signupstyle.css")
+  link(rel="stylesheet", href="./stylesheets/homestyle.css")
+
+block content 
+  .box
+    form.modal-content(action='/signup' method="post")
+      .container
+        h1 Enter Customer Data
+        | Please fill this form to create an account.
+        hr
+        if(msg!='')
+          h2 #{msg} 
+        label(for='acc')
+          b Account No:
+        input(type='text' placeholder='Enter Account No :' name='acc' required='')
+        label(for='name')
+          b Name :
+        input(type='text' placeholder='Enter Name for the Account :' name='name' required='')
+        label(for='phone')
+          b Phone No :
+        input(type='phone' placeholder='Enter Phone No :' name='phone' required='')
+        label(for='address')
+          b Address :
+        textarea(name="address", cols="20", rows="3" required='' placeholder='Write your Address :') 
+        label(for='psw')
+          b Password
+        input(type='password' placeholder='Enter Password' name='psw' required='')
+        label(for='psw-repeat')
+          b Repeat Password
+        input(type='password' placeholder='Repeat Password' name='cpsw' required='')
+        label
+          input(type='checkbox' checked='checked' name='remember' style='margin-bottom:15px')
+          |  Remember me
+        p
+          | By creating an account you agree to our 
+          a(href='#' style='color:dodgerblue') Terms & Privacy
+          | .
+        .clearfix
+          button.cancelbtn.btns(type='reset' onclick="document.getElementById('id01').style.display='none'") Cancel
+          button.signupbtn.btns(type='submit') Sign Up
